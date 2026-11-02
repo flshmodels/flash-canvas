@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Test Canvas",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "--test",
+        "tests/layout.test.cjs"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Export wallet sample",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "tools/export.cjs",
+        "examples/wallet.json",
+        "WalletDemo.generated.luau"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
