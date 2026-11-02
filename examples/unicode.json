@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "name": "UnicodeDemo",
+  "viewport": {
+    "width": 400,
+    "height": 300
+  },
+  "root": {
+    "id": "Root",
+    "type": "Frame",
+    "children": [
+      {
+        "id": "Text",
+        "type": "TextLabel",
+        "text": "\"safe\"\n🍃 café \\"
+      }
+    ]
+  }
+}
