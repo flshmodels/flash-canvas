@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file:; style-src 'self' file: 'unsafe-inline'; connect-src 'none'; img-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Flash Canvas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><strong>Flash Canvas</strong><span>Local layout workbench</span><button id="sample" type="button">Reset sample</button></header>
+  <main>
+    <section class="editor" aria-labelledby="layout-title">
+      <div class="section-head"><h1 id="layout-title">Layout</h1><label class="file-label">Open JSON<input id="file" type="file" accept=".json,application/json"></label></div>
+      <p>Frame, TextLabel and TextButton layouts. Files stay in this browser; nothing is uploaded.</p>
+      <label class="sr-only" for="source">Layout JSON</label><textarea id="source" spellcheck="false"></textarea>
+      <div class="actions"><button id="render" type="button">Render layout</button><button id="save-json" type="button" disabled>Save JSON</button><button id="save-luau" type="button" disabled>Export Luau</button></div>
+      <p id="status" role="status" aria-live="polite">Loading sample…</p>
+    </section>
+    <section class="preview" aria-labelledby="preview-title">
+      <div class="section-head"><h2 id="preview-title">Preview</h2><div class="dimensions"><label>Width<input id="width" type="number" min="240" max="1920" value="800"></label><label>Height<input id="height" type="number" min="200" max="1080" value="450"></label><button id="resize" type="button">Resize</button></div></div>
+      <div class="stage"><div id="screen" aria-label="Layout preview"></div></div>
+      <p class="limits">This is an approximate browser rendering, not Roblox Studio. Fonts, wrapping, clipping and strokes can differ. Buttons here have no game behavior.</p>
+      <details><summary>Generated Luau</summary><label class="sr-only" for="generated">Generated Luau source</label><textarea id="generated" readonly spellcheck="false"></textarea></details>
+    </section>
+  </main>
+  <script src="src/layout.js"></script>
+  <script src="src/sample.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>

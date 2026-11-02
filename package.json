@@ -1,0 +1,14 @@
+{
+  "name": "flash-canvas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local Roblox-style layout preview and Luau exporter.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "export:sample": "node tools/export.cjs examples/wallet.json WalletDemo.generated.luau"
+  }
+}

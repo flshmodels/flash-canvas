@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+node_modules/
+*.generated.luau
+.DS_Store
