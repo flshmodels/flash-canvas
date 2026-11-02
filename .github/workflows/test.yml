@@ -1,0 +1,28 @@
+name: Tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  node:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          package-manager-cache: false
+      - run: npm test
+      - run: node --check src/app.js
+      - run: node tools/export.cjs examples/wallet.json examples/WalletDemo.luau
+      - run: node tools/export.cjs examples/unicode.json examples/UnicodeDemo.luau
+      - run: git diff --exit-code -- examples/*.luau
+  luau:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install test runtime on the CI runner
+        run: |
+          curl --fail --location --retry 3 -o lune.zip https://github.com/lune-org/lune/releases/download/v0.11.1/lune-0.11.1-linux-x86_64.zip
+          unzip -q lune.zip -d tools
+          chmod +x tools/lune
+      - run: ./tools/lune run tests/generated
